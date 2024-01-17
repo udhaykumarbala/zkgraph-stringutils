@@ -23,7 +23,7 @@ export class TwoString {
    * Creates a Transfer object from an Event.
    *
    * @param {Event} event - The Event object to convert. - TwoString (slice1, slice2)
-   * @return {TwoString} The created Transfer object.
+   * @return {TwoString} The created TwoString object.
    */
   static fromEvent(event: Event): TwoString {
     let start = BigInt.fromBytes(event.data.slice(0, 32));

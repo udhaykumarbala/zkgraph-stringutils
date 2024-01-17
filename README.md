@@ -1,4 +1,9 @@
-# zkGraph default template
+# zkGraph String Utils
+This zkgraph helps offload the string operation to offchain and gives the mechanism to prove the offline calculated values
+
+#### Sample contarct Deployment on Sepolia: 0xc9f47C58d6e87D902Acb826cf31220C1429F5236
+
+#### Zkgraph TX hash: 0x6277c46cde355c457c28ada44ec8b703f06e955599a4be82000cc20be2134178
 
 
 ## Usage CLI

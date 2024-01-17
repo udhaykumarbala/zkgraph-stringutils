@@ -1,8 +1,8 @@
 specVersion: 0.0.2
 apiVersion: 0.0.2
-name: eg_event
-description: "This demo zkGraph shows 3 ways to access / filter out source events."
-repository: https://github.com/hyperoracle/zkgraph
+name: zkgraph-stringutils
+description: "This zkGraph helps you compute youre strings offchain."
+repository: https://github.com/udhaykumarbala/zkgraph-stringutils
 dataSources:
   - kind: ethereum
     network: sepolia
@@ -10,6 +10,10 @@ dataSources:
       - address: '0xc9f47C58d6e87D902Acb826cf31220C1429F5236'
         events: 
           - "Until(string,string)"
+          - "Beyond(string,string)"
+          - "Find(string,string)"
+          - "Rfind(string,string)"
+          - "Concat(string,string)"
 
 mapping:
   language: wasm/assemblyscript
@@ -19,4 +23,4 @@ mapping:
 dataDestinations:
   - kind: ethereum
     network: sepolia
-    address: "0x0000000000000000000000000000000000000001"
+    address: "0xc9f47C58d6e87D902Acb826cf31220C1429F5236"

@@ -1,21 +1,10 @@
 //@ts-ignore
-import { BigInt, require } from "@hyperoracle/zkgraph-lib";
+import { require } from "@hyperoracle/zkgraph-lib";
 import { Bytes, Block, Event} from "@hyperoracle/zkgraph-lib";
 import { TwoString } from "./events/twostring";
 import { until, beyond, find, rfind, concat } from "./utils/basics";
-
-let addr = Bytes.fromHexString('0xc9f47C58d6e87D902Acb826cf31220C1429F5236');
-
-let esig_until = Bytes.fromHexString('0xb210ae05de079c8a70587dd78abb12abf9e026404a3f73336b7ef22ab0f3f863');
-
-let esig_beyond = Bytes.fromHexString('0x833204b0f1287665edfec99f3aa2b03446df15faca4bd4ccc1a7cea84571199e');
-
-let esig_find = Bytes.fromHexString('0xb20c041f6c43cba208bc953ca1a88206192971cc30ff2310e76bc680a7785297');
-
-let esig_rfind = Bytes.fromHexString('0x0775b21f5ec381c37c1c46c80636c6b7079b77e35462d1082ba5d013a32f78e1');
-
-let esig_concat = Bytes.fromHexString('0xc403a8f5179114f328ff461ae8669e39dbcbc308c025dd177e8c8cce45ad4472');
-
+import { esig_until, esig_beyond, esig_find, esig_rfind, esig_concat } from "./constants/function-sig";
+import { addr, destinationFunction } from "./constants/contract";
 
 export function handleBlocks(blocks: Block[]): Bytes {
   // init output state
@@ -91,8 +80,7 @@ export function handleBlocks(blocks: Block[]): Bytes {
         events[i].esig == esig_rfind ||
         events[i].esig == esig_concat)
     ) {
-      const destinationFunction = "0xa444f5e9";
-
+      
       // merging the function hash with the calculated value to create calldata
       calculatedWithFunctionHash = Bytes.fromHexString(
         destinationFunction + Bytes.fromUTF8(result).toHexString().padStart(64, "0")
